@@ -11,7 +11,7 @@
 html,body{background:#141414;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 body{min-height:100vh;display:flex;justify-content:center}
 .bg{position:fixed;inset:0;background:url(cover.jpg) center/cover;filter:blur(40px) brightness(.35);transform:scale(1.2);z-index:-1}
-main{width:100%;max-width:440px;background:#222;min-height:100vh;padding-bottom:110px;box-shadow:0 0 60px rgba(0,0,0,.6)}
+main{width:100%;max-width:440px;background:#222;min-height:100vh;padding-bottom:20px;box-shadow:0 0 60px rgba(0,0,0,.6)}
 .cover{display:block;width:100%;height:min(100vw,440px,44vh);object-fit:cover;object-position:center 35%}
 .info{padding:18px 20px 4px;text-align:center}
 h1{font-size:24px;font-weight:700;line-height:1.2}
@@ -43,10 +43,8 @@ footer button{background:none;border:0;color:#777;text-decoration:underline;curs
 <a class="row" data-p="apple" href="https://music.apple.com/us/album/bur%C4%8D%C3%A1kov%C3%A9-tango/6816364542?i=6816364543" rel="noopener"><span class="name"><span class="dot" style="background:#FA2D48"></span>Apple Music</span><span class="play">PŘEHRÁT &#9656;</span></a>
 </div>
 <div class="social"><a href="https://www.instagram.com/baca_groove/" rel="noopener">Instagram</a><a href="https://www.facebook.com/523588660828120" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@bacagroove" rel="noopener">TikTok</a><a href="https://www.youtube.com/channel/UCoOwtrefiW-Uu267ZbJeWAQ" rel="noopener">YouTube</a></div>
-<footer><button type="button" onclick="bgoConsentReset()" data-i18n="cookies">Nastavení cookies</button></footer>
+<footer></footer>
 </main>
-<div id="cc"><div class="box"><p data-i18n="cc">Rádi bychom měřili, jak fungují naše reklamy (cookies Meta). Souhlasíš?</p>
-<div class="btns"><button type="button" onclick="bgoConsent('no')" data-i18n="no">Odmítnout</button><button type="button" class="ok" onclick="bgoConsent('yes')" data-i18n="yes">Souhlasím</button></div></div></div>
 <script data-goatcounter="https://bacagroove.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script>
 var SONG="Bur\u010d\u00e1kov\u00e9 tango",PIXEL="9274922125960349";
@@ -58,7 +56,7 @@ function loadPixel(){if(window.fbq)return;!function(f,b,e,v,n,t,s){if(f.fbq)retu
 fbq('init',PIXEL);fbq('track','PageView');fbq('track','ViewContent',{content_name:SONG,content_type:'song'});}
 function bgoConsent(v){ls("bgo_consent",v);document.getElementById("cc").style.display="none";if(v==="yes")loadPixel();}
 function bgoConsentReset(){document.getElementById("cc").style.display="flex";}
-var c=ls("bgo_consent");if(c==="yes")loadPixel();else if(c!=="no")document.getElementById("cc").style.display="flex";
+loadPixel();
 document.querySelectorAll("a.row").forEach(function(a){
   if(EN)a.querySelector(".play").textContent="PLAY \u25B8";
   a.addEventListener("click",function(ev){
