@@ -5,7 +5,8 @@
   "links": {
     "apple": "https://music.apple.com/us/album/bur%C4%8D%C3%A1kov%C3%A9-tango/6816364542?i=6816364543",
     "ytmusic": "https://music.youtube.com/watch?v=zoh5NVv3P6E&si=YgKUJzzN4DWYm68o",
-    "spotify": "https://open.spotify.com/playlist/3cga9EUJuEZQ5o35gnZkdI?si=iHEulYxYR8yb-wwj8AMWig"
+    "spotify": "https://open.spotify.com/playlist/3cga9EUJuEZQ5o35gnZkdI?si=iHEulYxYR8yb-wwj8AMWig",
+    "youtube": "https://www.youtube.com/watch?v=heVYAkWDwww"
   },
   "cover": "cover.jpg",
   "created": "2026-10-01"
