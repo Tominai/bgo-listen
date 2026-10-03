@@ -47,7 +47,7 @@ footer button{background:none;border:0;color:#777;text-decoration:underline;curs
 <body><div class="bg"></div>
 <main>
 <img class="cover" src="cover.jpg" alt="Burčákové tango – obal" width="1080" height="1080">
-<div class="info"><h1>Burčákové tango</h1><p class="by" data-i18n="by">Píseň · Bača Groove Orchestra</p></div>
+<div class="info"><h1>Burčákové tango</h1><p class="by">Bača Groove Orchestra</p></div>
 <div class="list">
 <a class="row" data-p="spotify" data-a="intent://open.spotify.com/playlist/3cga9EUJuEZQ5o35gnZkdI?si=iHEulYxYR8yb-wwj8AMWig#Intent;scheme=https;package=com.spotify.music;end" data-s="spotify:playlist:3cga9EUJuEZQ5o35gnZkdI" href="https://open.spotify.com/playlist/3cga9EUJuEZQ5o35gnZkdI?si=iHEulYxYR8yb-wwj8AMWig" rel="noopener"><span class="name"><img class="logo logo-spotify" src="/assets/logos/spotify.svg" alt="Spotify"></span><span class="play"><span class="pt">PŘEHRÁT</span><i class="tri" aria-hidden="true"></i></span></a>
 <a class="row" data-p="youtube" data-a="intent://www.youtube.com/watch?v=heVYAkWDwww#Intent;scheme=https;package=com.google.android.youtube;end" data-s="vnd.youtube://www.youtube.com/watch?v=heVYAkWDwww" href="https://www.youtube.com/watch?v=heVYAkWDwww" rel="noopener"><span class="name"><img class="logo logo-youtube" src="/assets/logos/youtube.svg" alt="YouTube"></span><span class="play"><span class="pt">PŘEHRÁT</span><i class="tri" aria-hidden="true"></i></span></a>
@@ -61,7 +61,7 @@ footer button{background:none;border:0;color:#777;text-decoration:underline;curs
 <script>
 var SONG="Bur\u010d\u00e1kov\u00e9 tango",PIXEL="9274922125960349";
 var EN=!/^(cs|sk)/i.test(navigator.language||"cs");
-if(EN){document.documentElement.lang="en";var T={by:"Song by Bača Groove Orchestra",cookies:"Cookie settings",cc:"We'd like to measure how our ads perform (Meta cookies). Do you agree?",no:"Decline",yes:"Accept",play:"PLAY"};
+if(EN){document.documentElement.lang="en";var T={cookies:"Cookie settings",cc:"We'd like to measure how our ads perform (Meta cookies). Do you agree?",no:"Decline",yes:"Accept",play:"PLAY"};
 document.querySelectorAll("[data-i18n]").forEach(function(e){var k=e.getAttribute("data-i18n");if(T[k])e.textContent=T[k];});}
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null}}
 function loadPixel(){if(window.fbq)return;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
