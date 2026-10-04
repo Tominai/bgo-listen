@@ -1,0 +1,14 @@
+{
+  "slug": "cerne-oci",
+  "title": "Černé oči",
+  "artist": "Bača Groove Orchestra",
+  "links": {
+    "spotify": "https://open.spotify.com/album/4eaVbeeUJCEEnqc1hklk3J",
+    "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXFNT6Y1E7h-wDUB8qer5BXzlOZyzbL1U",
+    "apple": "https://music.apple.com/cz/album/kruhy-zamotan%C3%A9/1872170067",
+    "youtube": "https://www.youtube.com/watch?v=iAGfCQvjxvM"
+  },
+  "video_first": true,
+  "cover": "cover.jpg",
+  "created": "2026-10-04"
+}
