@@ -30,6 +30,9 @@ h1{font-size:24px;font-weight:700;line-height:1.2}
 .play{display:flex;align-items:center;gap:8px;flex:none;font-size:13px;font-weight:600;letter-spacing:.04em;border:1px solid #888;border-radius:8px;padding:9px 12px;white-space:nowrap}
 .tri{width:0;height:0;border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .name{min-width:0}.logo{flex:0 1 auto;min-width:0;object-fit:contain;object-position:left center}
+.row{gap:12px}
+@media(max-width:400px){.row{padding:13px 12px}.play{font-size:12px;letter-spacing:.02em;padding:9px 9px;gap:6px}.tri{border-left-width:10px;border-top-width:6px;border-bottom-width:6px}}
+@media(max-width:340px){.play{font-size:11px;padding:8px 7px}.list{padding-left:10px;padding-right:10px}}
 .social{display:flex;justify-content:center;gap:26px;padding:20px 0 10px}
 .social a{color:#999;font-size:13px;text-decoration:none;display:flex}
 .social svg{width:24px;height:24px;fill:#8a8a8a}
