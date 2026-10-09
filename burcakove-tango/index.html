@@ -63,6 +63,8 @@ footer button{background:none;border:0;color:#777;text-decoration:underline;curs
 <script data-goatcounter="https://bacagroove.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script>
 var SONG="Bur\u010d\u00e1kov\u00e9 tango",PIXEL="9274922125960349";
+// zdroj návštěvy (utm_source, např. meta = reklama, ig-bio, fb-comment) – přidává se ke kliku, aby šlo kliky z reklamy oddělit
+var SRC=((new URLSearchParams(location.search)).get("utm_source")||"direct").toLowerCase().replace(/[^a-z0-9-]/g,"").slice(0,20)||"direct";
 var EN=!/^(cs|sk)/i.test(navigator.language||"cs");
 if(EN){document.documentElement.lang="en";var T={cookies:"Cookie settings",cc:"We'd like to measure how our ads perform (Meta cookies). Do you agree?",no:"Decline",yes:"Accept",play:"PLAY"};
 document.querySelectorAll("[data-i18n]").forEach(function(e){var k=e.getAttribute("data-i18n");if(T[k])e.textContent=T[k];});}
@@ -76,7 +78,7 @@ document.querySelectorAll("a.row").forEach(function(a){
   if(EN){var pt=a.querySelector(".pt");pt.textContent=pt.getAttribute("data-en")||"PLAY MUSIC";}
   a.addEventListener("click",function(ev){
     var p=a.getAttribute("data-p"),href=a.href;
-    try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:"click/burcakove-tango/"+p,title:SONG+" → "+p,event:true});}catch(e){}
+    try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:"click/burcakove-tango/"+p+"/"+SRC,title:SONG+" → "+p+" ("+SRC+")",event:true});}catch(e){}
     try{if(window.fbq){var k=Date.now()+Math.random().toString(36).slice(2,7);fbq('track','ViewContent',{content_name:'burcakove-tango',content_type:a.getAttribute('href')},{eventID:k});fbq('trackCustom','StreamClick',{platform:p,content_name:SONG});}}catch(e){}
     if(ev.metaKey||ev.ctrlKey||a.target==="_blank")return;
     var u=navigator.userAgent||"",A=/Android/i.test(u),I=/iPhone|iPad|iPod/i.test(u),M=/FBAN|FBAV|FB_IAB|Instagram/i.test(u),s=a.getAttribute("data-s"),i=a.getAttribute("data-a"),G=/Instagram/i.test(u)&&s&&s.indexOf("spotify:")==0;
