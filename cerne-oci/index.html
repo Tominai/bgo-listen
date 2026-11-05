@@ -74,15 +74,22 @@ fbq('init',PIXEL);fbq('track','PageView');}
 function bgoConsent(v){ls("bgo_consent",v);document.getElementById("cc").style.display="none";if(v==="yes")loadPixel();}
 function bgoConsentReset(){document.getElementById("cc").style.display="flex";}
 loadPixel();
+// A/B test (Tomáš 5. 11. 2026): iPhone v prohlížeči Facebooku/Instagramu – „app“ otevře rovnou aplikaci (Facebook se zeptá
+// „Leave Facebook?“), „web“ = jako SubmitHub, obyčejný webový odkaz. Varianta je náhodná a pamatuje si ji prohlížeč.
+var UA=navigator.userAgent||"",IOSIN=/iPhone|iPad|iPod/i.test(UA)&&/FBAN|FBAV|FB_IAB|Instagram/i.test(UA);
+var AB=ls("bgo_ab");if(AB!=="app"&&AB!=="web"){AB=Math.random()<0.5?"app":"web";ls("bgo_ab",AB);}
+function gcEv(path,title){var n=0;(function t(){try{if(window.goatcounter&&goatcounter.count){goatcounter.count({path:path,title:title,event:true});return;}}catch(e){}if(++n<20)setTimeout(t,500);})();}
+if(IOSIN)gcEv("ab/ios-view/"+AB+"/cerne-oci","A/B iPhone návštěva "+AB);
 document.querySelectorAll("a.row").forEach(function(a){
   if(EN){var pt=a.querySelector(".pt");pt.textContent=pt.getAttribute("data-en")||"PLAY MUSIC";}
   a.addEventListener("click",function(ev){
     var p=a.getAttribute("data-p"),href=a.href;
     try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:"click/cerne-oci/"+p+"/"+SRC,title:SONG+" → "+p+" ("+SRC+")",event:true});}catch(e){}
-    try{if(window.fbq){var k=Date.now()+Math.random().toString(36).slice(2,7);fbq('track','ViewContent',{content_name:'cerne-oci',content_type:a.getAttribute('href')},{eventID:k});fbq('trackCustom','StreamClick',{platform:p,content_name:SONG});}}catch(e){}
+    try{if(window.fbq){var k=Date.now()+Math.random().toString(36).slice(2,7);fbq('track','ViewContent',{content_name:'cerne-oci',content_type:a.getAttribute('href')},{eventID:k});fbq('trackCustom','StreamClick',{platform:p,content_name:SONG,ab:IOSIN?AB:'-'});}}catch(e){}
+    if(IOSIN)gcEv("ab/ios-click/"+AB+"/cerne-oci/"+p,"A/B iPhone proklik "+AB+" → "+p);
     if(ev.metaKey||ev.ctrlKey||a.target==="_blank")return;
     var u=navigator.userAgent||"",A=/Android/i.test(u),I=/iPhone|iPad|iPod/i.test(u),M=/FBAN|FBAV|FB_IAB|Instagram/i.test(u),s=a.getAttribute("data-s"),i=a.getAttribute("data-a"),G=/Instagram/i.test(u)&&s&&s.indexOf("spotify:")==0;
-    var go=href;if(A&&i)go=i;else if(I&&M&&s&&!G)go=s;
+    var go=href;if(A&&i)go=i;else if(I&&M&&s&&!G&&AB==="app")go=s;
     ev.preventDefault();setTimeout(function(){location.href=go;if(go!==href)setTimeout(function(){location.href=href},1000);},250);
   });
 });
